@@ -1,4 +1,4 @@
-const speakers = [
+module.exports.speakers = [
   {
     id: "1",
     firstName: "Greta",

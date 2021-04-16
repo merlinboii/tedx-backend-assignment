@@ -1,4 +1,4 @@
-const attendees = [
+module.exports.attendees = [
   {
     id: "1",
     firstName: "Ji-eun",
