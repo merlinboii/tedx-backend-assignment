@@ -16,6 +16,8 @@ $ npm start
 
 * ### `[GET] - /attendees` 
   Description : List all attendees
+  
+  **Example**
 
   Request: `[GET] /attendees`
 
@@ -41,6 +43,8 @@ $ npm start
   ```
 * ### `[GET] - /attendees?fields=query1,..`
   Description : List all attendees by some fields
+  
+  **Example**
 
   Request: `[GET] /attendees?fields=firstName,lastName`
 
@@ -62,6 +66,8 @@ $ npm start
   ```
 * ### `[GET] - /attendees?sortAsc=field`: List and sort all attendees in ascending order by some fields
   Deacription : List all attendees by some fields
+  
+  **Example**
   
   Request: `[GET] /attendees?sortAsc=lastName`
 
@@ -171,6 +177,7 @@ $ npm start
 
 * ### `[GET] - /speakers`
   Description : List all speakers
+  
   **Example**
 
   Request: `[GET] /speakers`
@@ -197,6 +204,9 @@ $ npm start
   ```
 * ### `[GET] - /speakers?fields=query1,..`
   Description : List all speakers by some fields
+  
+  **Example**
+  
   Request: `[GET] /speakers?fields=firstName,topic`
 
   Response:
@@ -217,6 +227,8 @@ $ npm start
   ```
 * ### `[GET] - /speakers?sortAsc=field`
   Description : List and sort all attendees in ascending order by some fields
+  
+  **Example**
   
   Request: `[GET] /speakers?sortAsc=firstName`
 
@@ -243,6 +255,7 @@ $ npm start
 
 * ### `[GET] - /speaker/{id}`: Get speaker's information
   Description : Get speaker's information
+  
   **Example**
 
   Request: `[GET] /speaker/1`
@@ -262,6 +275,7 @@ $ npm start
 
 * ### `[GET] - /speaker/{id}?fields=query1,..`: Get attendee's information by some fields
   Description : Get attendee's information by some fields
+  
   **Example**
 
   Request: `[GET] /speaker/1?fields=firstName,topic`
@@ -278,6 +292,7 @@ $ npm start
   ```
 * ### `[POST] - /speaker`: Add new speaker
   Description : Add new speaker
+  
   **Example**
 
   Request: `[POST] /speaker`
