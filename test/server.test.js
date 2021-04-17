@@ -11,8 +11,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: true})) // user body-parser for input json data
 app.use(bodyParser.json())
 
-
-
 app.route('/attendees')
 .get(controller.listAllattendees)
 app.route('/attendee/:id')
