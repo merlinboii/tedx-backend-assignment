@@ -1,16 +1,13 @@
-const request = require('supertest');
-//const { attendees } = require('../api/data/attendees');
+const request = require('supertest')
 const attendees = require('../api/data/attendees')
 const speakers = require('../api/data/speakers')
-const app = require('./server.test');
-
-//const expect = require('chai').expect;
+const app = require('./server.test')
 
 describe('filter()', () => {
-    let server;
+    let server
 
-    beforeEach(() => (server = app.listen()));
-    afterEach(() => server.close());
+    beforeEach(() => (server = app.listen()))
+    afterEach(() => server.close())
     //=========== Attendees Testing ===========//
     describe('GET/ attendees with out filter', () => {
         it('should be response all attendees', async () => {
@@ -31,9 +28,9 @@ describe('filter()', () => {
                             email: "minho@shineesback.com"
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ attendees with filter', () => {
         it('should filter that property', async () => {
             await request(server)
@@ -49,9 +46,9 @@ describe('filter()', () => {
                             email: 'minho@shineesback.com'
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ attendees with sortAsc', () => {
         it('should sort the attendees by field', async () => {
             await request(server)
@@ -71,9 +68,9 @@ describe('filter()', () => {
                             email: "iu@celebrity.com"
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ a attendee with out filter', () => {
         it('should response only one attendee', async () => {
             await request(server)
@@ -86,9 +83,9 @@ describe('filter()', () => {
                         lastName: "Choi",
                         email: "minho@shineesback.com"
                     }
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ a attendee with filter', () => {
         it('should filter that property', async () => {
             await request(server)
@@ -99,9 +96,9 @@ describe('filter()', () => {
                         id: "2",
                         lastName: "Choi"
                     }
-                });
-        });
-    });
+                })
+        })
+    })
 
     //=========== Speakers Testing ===========//
     describe('GET/ speakers with out filter', () => {
@@ -123,9 +120,9 @@ describe('filter()', () => {
                             topic: "Bitcoin and Climate Change"
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ speakers with filter', () => {
         it('should filter that property', async () => {
             await request(server)
@@ -141,9 +138,9 @@ describe('filter()', () => {
                             topic: "Bitcoin and Climate Change"
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ speakers with sortAsc', () => {
         it('should sort the speakers by field', async () => {
             await request(server)
@@ -163,9 +160,9 @@ describe('filter()', () => {
                             topic: "Climate Change is Real"
                         }
                     ]
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ a speaker with out filter', () => {
         it('should response only one speaker', async () => {
             await request(server)
@@ -178,9 +175,9 @@ describe('filter()', () => {
                         lastName: "Thunberg",
                         topic: "Climate Change is Real"
                     }
-                });
-        });
-    });
+                })
+        })
+    })
     describe('GET/ a speaker with filter', () => {
         it('should filter that property', async () => {
             await request(server)
@@ -191,7 +188,7 @@ describe('filter()', () => {
                         id: "1",
                         lastName: "Thunberg"
                     }
-                });
-        });
-    });
-});
+                })
+        })
+    })
+})
