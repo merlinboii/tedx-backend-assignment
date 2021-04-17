@@ -68,7 +68,7 @@ Heroku server : `https://tedx-assginment-api.herokuapp.com/`
       ]
     }
   ```
-* ### `[GET] - /attendees?sortAsc=field`: List and sort all attendees in ascending order by some fields
+* ### `[GET] - /attendees?sortAsc=field`
   Deacription : List all attendees by some fields
   
   **Example**
@@ -257,7 +257,7 @@ Heroku server : `https://tedx-assginment-api.herokuapp.com/`
     }
   ```
 
-* ### `[GET] - /speaker/{id}`: Get speaker's information
+* ### `[GET] - /speaker/{id}`
   Description : Get speaker's information
   
   **Example**
@@ -277,7 +277,7 @@ Heroku server : `https://tedx-assginment-api.herokuapp.com/`
   }
   ```
 
-* ### `[GET] - /speaker/{id}?fields=query1,..`: Get attendee's information by some fields
+* ### `[GET] - /speaker/{id}?fields=query1,..`
   Description : Get attendee's information by some fields
   
   **Example**
