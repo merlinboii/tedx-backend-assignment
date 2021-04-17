@@ -27,7 +27,8 @@ exports.listAllattendees = function(req,res){
 }
 
 exports.readAattendeebyId = function(req,res){
-    var data = attendees.attendees[req.params.id-1]
+    var index = parseInt(req.params.id)-1
+    var data = attendees.attendees[index]
     if (!data || 'object' != typeof data) return
     // check for filter
     let filter = req.query.fields
@@ -80,7 +81,8 @@ exports.listAllspeakers = function(req,res){
 }
 
 exports.readAspeakerbyId = function(req,res){
-    var data = speakers.speakers[req.params.id-1]
+    var index = parseInt(req.params.id)-1
+    var data = speakers.speakers[index]
     // check non-json
     if (!data || 'object' != typeof data) return
     // check for filter
