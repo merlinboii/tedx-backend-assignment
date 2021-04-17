@@ -105,10 +105,6 @@ exports.AddAspeaker = function(req,res){
                }                                 
    speakers.speakers[index] = speaker
    var data = speakers.speakers
-   /* if (!data || 'object' != typeof data) return
-   // check for filter & sort
-   result = data.sort(CompareData('id'))
-   //format & response data */
    var json = formatResponse(data,res.statusCode)
    res.json(json)
 }
