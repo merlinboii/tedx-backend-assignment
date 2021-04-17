@@ -1,6 +1,6 @@
 # TEDxCharoenkrung Backend Developer Assignment
 
-## Assifnment Detail
+## Assignment Detail
 - [Assignment Detail](assignment.md)
 ## Installation
 
