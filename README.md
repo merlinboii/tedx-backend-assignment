@@ -8,9 +8,16 @@
 $ npm install express body-parser cors
 ```
 ## How to start application
+Server run on port 80 | `http://localhost:80/`
 ```
 $ npm start
 ```
+
+Heroku server
+```
+Heroku : 
+```
+
 
 ### Attendee Endpoint
 
