@@ -62,6 +62,7 @@ $ npm start
   ```
 * ### `[GET] - /attendees?sortAsc=field`: List and sort all attendees in ascending order by some fields
   Deacription : List all attendees by some fields
+  
   Request: `[GET] /attendees?sortAsc=lastName`
 
   Response:
@@ -216,6 +217,7 @@ $ npm start
   ```
 * ### `[GET] - /speakers?sortAsc=field`
   Description : List and sort all attendees in ascending order by some fields
+  
   Request: `[GET] /speakers?sortAsc=firstName`
 
   Response:
