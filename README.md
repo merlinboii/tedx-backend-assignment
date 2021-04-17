@@ -13,10 +13,7 @@ Server run on port 80 | `http://localhost:80/`
 $ npm start
 ```
 
-Heroku server
-```
-Heroku : https://tedx-assginment-api.herokuapp.com/
-```
+Heroku server : `https://tedx-assginment-api.herokuapp.com/`
 
 
 ### Attendee Endpoint
