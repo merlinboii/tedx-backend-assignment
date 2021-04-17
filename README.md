@@ -15,7 +15,7 @@ $ npm start
 
 Heroku server
 ```
-Heroku : 
+Heroku : https://tedx-assginment-api.herokuapp.com/
 ```
 
 
