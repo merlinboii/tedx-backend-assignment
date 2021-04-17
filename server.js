@@ -2,9 +2,8 @@ const { Router } = require('express')
 var express = require('express')
 var app = express()
 
-port = process.env.PORT || 5000
+port = process.env.PORT || 80
 
-//Contact = require('./api/model/contactListModel')
 bodyParser = require('body-parser')
 
 const cors = require('cors') // cross side origin
@@ -17,3 +16,4 @@ var route = require('./api/routes/routes')
 route(app)
 app.listen(port)
 console.log('User List Server started on : '+port)
+

@@ -1,0 +1,38 @@
+{
+  "name": "tedx-backend-assignment",
+  "version": "1.0.0",
+  "description": "- [Assignment Detail](assignment.md)\r - How to start application\r - etc..",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "json-query": "^2.2.2",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-json-filter": "^0.0.1",
+    "koa-router": "^10.0.0",
+    "supertest": "^6.1.3"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --colors test/*",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filmptz/tedx-backend-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filmptz/tedx-backend-assignment/issues"
+  },
+  "homepage": "https://github.com/filmptz/tedx-backend-assignment#readme"
+}

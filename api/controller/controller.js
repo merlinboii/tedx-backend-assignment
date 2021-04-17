@@ -1,27 +1,52 @@
 'use strict'
-var jsonQuery = require('json-query')
 const attendees = require('../data/attendees')
 const speakers = require('../data/speakers')
 
 //======================== ATTENDEES ========================//
+
 exports.listAllattendees = function(req,res){
     var data = attendees.attendees
-    var json = formatResponse(data,res.statusCode)
-    res.json(json)
+    var result 
+   // check non-json
+   if (!data || 'object' != typeof data) return
+   // check for filter & sort
+   let filter = req.query.fields
+   let sortAsc = req.query.sortAsc
+   if (filter) {
+        result = filterData(data,filter)
+   }
+   else if(sortAsc){   
+        result = data.sort(CompareData(sortAsc))
+   }
+   else {
+       result = data
+   }
+   //format & response data
+   var json = formatResponse(result,res.statusCode)
+   res.json(json)
 }
 
 exports.readAattendeebyId = function(req,res){
-    var result = attendees.attendees[req.params.id-1]
+    var data = attendees.attendees[req.params.id-1]
+    if (!data || 'object' != typeof data) return
+    // check for filter
+    let filter = req.query.fields
+    if (!filter) {
+        var json = formatResponse(data,res.statusCode)
+        res.json(json)
+    }
+    var result = filterData(data,filter)
     var json = formatResponse(result,res.statusCode)
     res.json(json)
 }
 
 exports.AddAattendee = function(req,res){
     var index = attendees.attendees.length
+    var id=''
      var attendee = {
-                    "id": index+1,
-                    "firstname": req.body.firstName,
-                    "lastname": req.body.lastName,
+                    "id": id.concat(index+1),
+                    "firstName": req.body.firstName,
+                    "lastName": req.body.lastName,
                     "email": req.body.email
                 }                                 
     attendees.attendees[index] = attendee
@@ -34,26 +59,56 @@ exports.AddAattendee = function(req,res){
 
 exports.listAllspeakers = function(req,res){
     var data = speakers.speakers
-    var json = formatResponse(data,res.statusCode)
-    res.json(json)
+    var result 
+   // check non-json
+   if (!data || 'object' != typeof data) return
+   // check for filter & sort
+   let filter = req.query.fields
+   let sortAsc = req.query.sortAsc
+   if (filter) {
+        result = filterData(data,filter)
+   }
+   else if(sortAsc){   
+        result = data.sort(CompareData(sortAsc))
+   }
+   else {
+       result = data
+   }
+   //format & response data
+   var json = formatResponse(result,res.statusCode)
+   res.json(json)
 }
 
 exports.readAspeakerbyId = function(req,res){
-    var result = speakers.speakers[req.params.id-1]
+    var data = speakers.speakers[req.params.id-1]
+    // check non-json
+    if (!data || 'object' != typeof data) return
+    // check for filter
+    let filter = req.query.fields
+    if (!filter) {
+        var json = formatResponse(data,res.statusCode)
+        res.json(json)
+    }
+    var result = filterData(data,filter)
     var json = formatResponse(result,res.statusCode)
     res.json(json)
 }
 
 exports.AddAspeaker = function(req,res){
     var index = speakers.speakers.length
-    var attendee = {
-                   "id": index+1,
-                   "firstname": req.body.firstName,
-                   "lastname": req.body.lastName,
+    var id = ''
+    var speaker = {
+                   "id": id.concat(index+1),
+                   "firstName": req.body.firstName,
+                   "lastName": req.body.lastName,
                    "topic": req.body.topic
                }                                 
-   speakers.speakers[index] = attendee
+   speakers.speakers[index] = speaker
    var data = speakers.speakers
+   /* if (!data || 'object' != typeof data) return
+   // check for filter & sort
+   result = data.sort(CompareData('id'))
+   //format & response data */
    var json = formatResponse(data,res.statusCode)
    res.json(json)
 }
@@ -65,5 +120,33 @@ function formatResponse(data,status){
         status : status,
         data:data
     }
-    
 }
+
+function filterData(data,filter){
+    if ('string' == typeof filter) filter = filter.split(',' )
+    if (Array.isArray(data)) {
+        return data.map(obj => {
+            return filter.reduce((result, key) => {
+                result[key] = obj[key]
+                return result
+             }, {})
+            })
+    }
+    else {
+        return filter.reduce((result, key) => {
+            result[key] = data[key]
+            return result
+          }, {})
+    }
+}
+
+function CompareData(prop) {    
+        return function(a, b) {    
+            if (a[prop] > b[prop]) {    
+                return 1;    
+            } else if (a[prop] < b[prop]) {    
+                return -1;    
+            }    
+            return 0;    
+        }    
+}       
